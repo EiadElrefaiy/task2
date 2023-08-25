@@ -20,18 +20,6 @@ class visitorController extends Controller
 
     }
 
-    public function readUser(string $id){
-        $ip = $request->ip();
-        $visitor = Visitor::firstOrCreate(['ip' => $ip]);
-        $visitor->increment('visits');
-        $visitor->save();
-
-        $visitors = Visitor::count();
-
-        return view('welcome', compact('visitors'));
-
-    }
-
     public function register(){
 
         return view('register');
